@@ -11,6 +11,7 @@ body {
     background: linear-gradient(135deg, #1a1a1a 25%, #0b0b0b 100%);
     color: #fff;
     overflow-x: hidden;
+    scroll-behavior: smooth; /* Плавная прокрутка */
 }
 
 .container {
@@ -60,6 +61,12 @@ h1, h2 {
     position: relative;
     display: inline-block;
     color: #fff;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f; }
 }
 
 .glitch::before,
@@ -124,6 +131,24 @@ section:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.feature i {
+    font-size: 2em;
+    margin-right: 15px;
+    color: #f39c12;
+    transition: color 0.3s ease;
+}
+
+.feature:hover i {
+    color: #fff;
+}
+
 p {
     font-size: 1.2em;
     line-height: 1.5;
@@ -151,4 +176,25 @@ footer .social-icons a {
 
 footer .social-icons a:hover {
     color: #f39c12;
+}
+
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: #e67e22;
+    transform: translateY(-5px);
 }
