@@ -91,4 +91,96 @@ h1, h2 {
 .glitch::after {
     left: -2px;
     text-shadow: 2px 0 blue;
-    animation: glitch 3s infinit
+    animation: glitch 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+    0% {
+        clip: rect(17px, 9999px, 29px, 0);
+    }
+    5%, 7% {
+        clip: rect(1px, 9999px, 19px, 0);
+    }
+    10%, 100% {
+        clip: rect(12px, 9999px, 6px, 0);
+    }
+}
+
+.parallax {
+    background: url('https://example.com/your-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 60px 20px;
+    text-align: center;
+    animation: slideIn 1.5s ease-out;
+    color: #fff;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.feature i {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #f39c12;
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeInUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+footer {
+    padding: 20px;
+    background-color: #111;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: footerSlideIn 2s ease-in;
+}
+
+@keyframes footerSlideIn {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+footer a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
