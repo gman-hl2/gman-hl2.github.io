@@ -135,7 +135,23 @@ h1, h2 {
     margin: 10px;
     font-size: 1.2em;
     text-align: center;
-    animation: fadeInUp 2s ease-in-out;
+}
+
+.slide-in-right {
+    opacity: 0;
+    animation: slideInRight 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .feature i {
@@ -143,11 +159,6 @@ h1, h2 {
     margin-bottom: 10px;
     color: #f39c12;
     animation: pulse 2s infinite;
-}
-
-@keyframes fadeInUp {
-    0% { transform: translateY(30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes pulse {
@@ -183,4 +194,32 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInBackToTop 2s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fadeInBackToTop {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#back-to-top:hover {
+    background: #e67e22;
 }
