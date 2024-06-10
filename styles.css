@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 * {
     box-sizing: border-box;
@@ -10,8 +11,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #1a1a1a 25%, #0b0b0b 100%);
     color: #fff;
-    overflow-x: hidden;
-    scroll-behavior: smooth; /* Плавная прокрутка */
+    overflow: hidden; /* Отключаем прокрутку */
 }
 
 .container {
@@ -22,8 +22,8 @@ body {
     background-color: rgba(17, 17, 17, 0.9);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
-    overflow: hidden;
     animation: fadeIn 1.5s ease-in;
+    text-align: center;
 }
 
 @keyframes fadeIn {
@@ -32,11 +32,8 @@ body {
 }
 
 header {
-    background-color: #111;
     padding: 20px;
     text-align: center;
-    position: relative;
-    z-index: 1;
 }
 
 .title-container {
@@ -48,6 +45,12 @@ h1, h2 {
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    animation: textSlide 2s ease-out;
+}
+
+@keyframes textSlide {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .subtitle {
@@ -88,113 +91,4 @@ h1, h2 {
 .glitch::after {
     left: -2px;
     text-shadow: 2px 0 blue;
-    animation: glitch 3s infinite linear alternate-reverse;
-}
-
-@keyframes glitch {
-    0% {
-        clip: rect(17px, 9999px, 29px, 0);
-    }
-    5%, 7% {
-        clip: rect(1px, 9999px, 19px, 0);
-    }
-    10%, 100% {
-        clip: rect(12px, 9999px, 6px, 0);
-    }
-}
-
-.parallax {
-    background: url('https://example.com/your-image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    padding: 60px 20px;
-    text-align: center;
-    animation: slideIn 1.5s ease-out;
-}
-
-@keyframes slideIn {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-}
-
-section {
-    margin-bottom: 30px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
-
-.feature {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 1.2em;
-}
-
-.feature i {
-    font-size: 2em;
-    margin-right: 15px;
-    color: #f39c12;
-    transition: color 0.3s ease;
-}
-
-.feature:hover i {
-    color: #fff;
-}
-
-p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin: 10px 0;
-}
-
-footer {
-    background-color: #111;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-footer p {
-    font-size: 0.9em;
-}
-
-footer .social-icons a {
-    margin: 0 10px;
-    color: #fff;
-    font-size: 1.5em;
-    transition: color 0.3s ease;
-}
-
-footer .social-icons a:hover {
-    color: #f39c12;
-}
-
-#back-to-top {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #f39c12;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 15px;
-    font-size: 1.2em;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#back-to-top:hover {
-    background-color: #e67e22;
-    transform: translateY(-5px);
-}
+    animation: glitch 3s infinit
