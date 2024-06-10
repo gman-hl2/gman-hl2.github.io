@@ -1,91 +1,154 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    color: #dbdbdb;
     padding: 0;
-    background-color: #000000;
 }
 
-header {
-    background-color: #000000;
-    color: #dbdbdb;
-    padding: 10px 0;
-    text-align: center;
-}
-
-main {
-    padding: 20px;
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 25%, #0b0b0b 100%);
+    color: #fff;
+    overflow-x: hidden;
 }
 
 .container {
-    background-color: #000000;
-    border-radius: 15px;
-    box-shadow: 0 8px 8px rgba(0, 175, 219, 1);
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
+    border-radius: 20px;
+    background-color: rgba(17, 17, 17, 0.9);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.title-container {
+    position: relative;
 }
 
 h1, h2 {
-    color: #dbdbdb;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.subtitle {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-top: 10px;
+    font-weight: 300;
 }
 
-ul li {
-    background-color: #00afdb;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 3px;
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: #fff;
 }
 
-footer {
-    background-color: #000000;
-    color: #dbdbdb;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-#screamer {
-    position: fixed;
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
 }
 
-#startButton {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitch 2s infinite linear alternate-reverse;
 }
 
-#securityCheck, #confirmation, #screamer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 blue;
+    animation: glitch 3s infinite linear alternate-reverse;
 }
 
-#confirmation, #screamer {
-    display: none;
+@keyframes glitch {
+    0% {
+        clip: rect(17px, 9999px, 29px, 0);
+    }
+    5%, 7% {
+        clip: rect(1px, 9999px, 19px, 0);
+    }
+    10%, 100% {
+        clip: rect(12px, 9999px, 6px, 0);
+    }
 }
 
-#startButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.parallax {
+    background: url('https://example.com/your-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 60px 20px;
+    text-align: center;
+    animation: slideIn 1.5s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #f39c12;
 }
